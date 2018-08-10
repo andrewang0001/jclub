@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>FlowSOM: Using self-organising maps for visualisation and intepretation of cytometry data</title>
+<meta name="author" content="(Andre Wang)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="/home/andre/bin/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="/home/andre/bin/reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="./local.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/home/andre/bin/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section>
+<section id="slide-org944f9cf" data-background="#ffffff">
+<h2 id="org944f9cf"></h2>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./img/flowsomtitle2.svg" class="org-svg" width="100%" text-align="center">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb790809">
+<h2 id="orgb790809">Background</h2>
+<div class="outline-text-2" id="text-orgb790809">
+</div>
+</section>
+<section id="slide-orgbd54bea">
+<h3 id="orgbd54bea">Mass Cytometry</h3>
+<p>
+A high-throughput form of flow cytometry.
+</p>
+
+
+<div class="figure">
+<p><img src="./img/masscyt2.jpg" alt="masscyt2.jpg" width="90%" height="90%" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Bendall et al. 2012</p>
+</div>
+
+<aside class="notes">
+<p>
+Flow cytometry = around 10 markers; need to worry about fluorescence bleeding
+into different channels
+Mass cytometry = 30-50 markers; ions uncommon in biological setting (no
+background)
+ICP: inductively coupled plasma (plasma induced by time-varying magnetic
+fields), used to ionise sample
+quadrupole: separates ions by mass/charge ratio
+</p>
+
+</aside>
+</section>
+<section id="slide-org9a3eea1">
+<h4 id="org9a3eea1">Manual gating is less feasible</h4>
+
+<div class="figure">
+<p><img src="./img/masscyt_fig3.jpg" alt="masscyt_fig3.jpg" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Bendall et al. 2012</p>
+</div>
+
+<aside class="notes">
+<p>
+Not all combinations valid &#x2013; eg. CD19 and CD3 probably won't be compared
+regardless, exponentially growing upper bound as number of markers increases
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org22d7c89">
+<h3 id="org22d7c89">FlowCAP</h3>
+<p>
+A 'competition' where datasets are provided and participants attempt to sort the
+data computationally.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org511896e">
+<h2 id="org511896e">Method</h2>
+<div class="outline-text-2" id="text-org511896e">
+</div>
+</section>
+<section id="slide-org2e0a234">
+<h3 id="org2e0a234">FlowSOM</h3>
+<p>
+allows both clustering and visualisation
+</p>
+
+<aside class="notes">
+<p>
+Authors argue that clustering using SOM allows for automated gating
+and the visualisation throgh star charts allows for easier interpretation of
+data as opposed to 'death by scatter plot'
+</p>
+
+</aside>
+</section>
+<section id="slide-orgf5a391c">
+<h3 id="orgf5a391c"></h3>
+
+<div class="figure">
+<p><img src="./img/fig1.png" alt="fig1.png" height="75%" width="75%" />
+</p>
+</div>
+
+</section>
+<section id="slide-org15d84c7">
+<h3 id="org15d84c7">Building the self-organising map</h3>
+<div>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="ltximg/jclub_24acd77adad2afc80cc010db2ea0caea920c8b90.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object></p>
+</div>
+</div>
+<aside class="notes">
+<p>
+Begin to be a bit disillusioned with the paper
+Only explanations offered are very hand-wavey  ("grid is trained in such a way
+that nodes closely connected to each other resemble each other") or too
+exclusionary (like this algorithm)
+</p>
+
+</aside>
+</section>
+<section id="slide-org8226e7e" data-transition="fade">
+<h4 id="org8226e7e"></h4>
+<div>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="ltximg/jclub_375dc878c26d7b04d08d5c57d585ff1094ee9263.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object></p>
+</div>
+</div>
+
+</section>
+<section id="slide-org655a445" data-transition="fade">
+<h4 id="org655a445"></h4>
+<div>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="ltximg/jclub_50388d2eac6ebbc111f1266f48fcf004e8f3d26c.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object></p>
+</div>
+</div>
+
+</section>
+<section id="slide-org189853b" data-transition="fade">
+<h4 id="org189853b"></h4>
+<div>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="ltximg/jclub_b51456ef60aadd122a3d17afc1425478c00fcb82.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object></p>
+</div>
+</div>
+
+<aside class="notes">
+<p>
+Repeat this process many many times, gradually reducing the neighbourhood size
+and decreasing the neighbor learning factor.
+</p>
+
+</aside>
+</section>
+<section id="slide-org41a2276">
+<h3 id="org41a2276">Visualisation</h3>
+
+<div class="figure">
+<p><img src="./img/fig2.jpg" alt="fig2.jpg" width="50%" height="50%" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+This represents the self-organised map grid, with each node representing a
+cluster. 
+The weight vector of the cluster is represented as a star chart within
+the node. 
+Authors give an example at the top. Other example = CD19+ clusters on the right,
+representing B cells.
+</p>
+
+<p>
+Idea is that you are given a high level overview of the data,
+ and can see if there are any interesting scatter plots for manual examination.
+</p>
+
+<p>
+The authors say that this was designed to help with high-dimensionality
+analysis, but the star chart will not be particularly helpful when there are
+many dimensions.
+</p>
+
+</aside>
+
+
+</section>
+<section id="slide-orgde5c355">
+<h3 id="orgde5c355">Self organising maps are emergent</h3>
+<p>
+A tunable parameter is the number of clusters; these clusters can then be clustered.
+</p>
+<aside class="notes">
+<p>
+Emergent property: the whole is greater than the sum of its parts.
+Sort of a game - aim is to minimise the variance within clusters.
+With many many clusters, the variance will be very low (but this is not
+analytically helpful).
+By reducing # of clusters, variance will start increasing - aim is to have a
+number of final clusters where adding additional clusters has minimal effect on
+variance.
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgdcce1ce">
+<h2 id="orgdcce1ce">Results</h2>
+<p>
+How does this compare to traditional gating?
+</p>
+
+</section>
+<section id="slide-org540ae1d">
+<h3 id="org540ae1d">Testing system</h3>
+<p>
+Cluster with
+</p>
+<ul>
+<li>Eight computing nodes</li>
+<li>each with 256 RAM and 24 cores</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+Not something the average person/lab has!
+</p>
+
+<p>
+Regardless, authors say that it runs Very Fast (compared to SPADE).
+Authors also indicate that they haven't parallelised flowSOM (it probably never
+will be&#x2026;)
+</p>
+
+</aside>
+
+
+</section>
+<section id="slide-org9a4bb4f">
+<h3 id="org9a4bb4f">Benchmarking</h3>
+<p>
+Used the FlowCAP I dataset, comprising:
+</p>
+<ul>
+<li>diffuse large B-cell lymphoma</li>
+<li>graft versus host disease</li>
+<li>hematopoietic stem cell ransplant</li>
+<li>normal donor</li>
+<li>symptomatic West Nile virus</li>
+
+</ul>
+
+<p>
+Also one in-house dataset, and another mass cytometry dataset.
+</p>
+<aside class="notes">
+<p>
+Authors omit F-value for mass cytometry dataset.
+Authors omit F-value for SPADE.
+mass cytometry is bone marrow
+</p>
+
+<p>
+Measure F-value (precision: fraction of relevant items amongst all retrieved
+items, and recall: fraction of relevant items over all relevant items)
+Also qualitatively show that clusters generally represent single cell types, as
+identified manually
+very high precision = mostly true positives (no false positives)
+very low precision = lots of false positives
+very high recall = low number of false negatives
+very low recall = high number of false negativesRR
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org6f42345">
+<h2 id="org6f42345">Caveats</h2>
+<ul>
+<li><code>FlowSOM</code> was optimised for a particular dataset (FlowCAP I).</li>
+<li>Only tested against one mass cytometry dataset.</li>
+
+</ul>
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+Optimisations: distance measures, run length, metaclustering
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orge27a7e0">
+<h2 id="orge27a7e0">Comparisons to other algorithms</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="/home/andre/bin/reveal.js/lib/js/head.min.js"></script>
+<script src="/home/andre/bin/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: '/home/andre/bin/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: '/home/andre/bin/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '/home/andre/bin/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: '/home/andre/bin/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: '/home/andre/bin/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
