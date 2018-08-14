@@ -1,1 +1,485 @@
-../jclub.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>FlowSOM: Using self-organising maps for visualisation and intepretation of cytometry data</title>
+<meta name="author" content="(Andre Wang)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/theme/black.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section>
+<section id="slide-org18b4ac0" data-background="#ffffff">
+<h2 id="org18b4ac0"></h2>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./img/flowsomtitle2.svg" class="org-svg" width="100%" text-align="center">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc657c08">
+<h2 id="orgc657c08">Background</h2>
+<div class="outline-text-2" id="text-orgc657c08">
+</div>
+</section>
+<section id="slide-org34e67cc">
+<h3 id="org34e67cc">Mass Cytometry</h3>
+<p>
+A high-throughput form of flow cytometry.
+</p>
+
+
+<div class="figure">
+<p><img src="./img/masscyt2.jpg" alt="masscyt2.jpg" width="90%" height="90%" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Bendall et al. 2012</p>
+</div>
+
+<aside class="notes">
+<p>
+Flow cytometry = around 10 markers; need to worry about fluorescence bleeding
+into different channels
+Mass cytometry = 30-50 markers; ions uncommon in biological setting (no
+background)
+ICP: inductively coupled plasma (plasma induced by time-varying magnetic
+fields), used to ionise sample
+quadrupole: separates ions by mass/charge ratio
+</p>
+
+</aside>
+</section>
+<section id="slide-orgab7a004">
+<h4 id="orgab7a004">Manual gating is less feasible</h4>
+
+<div class="figure">
+<p><img src="./img/masscyt_fig3.jpg" alt="masscyt_fig3.jpg" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Bendall et al. 2012</p>
+</div>
+
+<aside class="notes">
+<p>
+Not all combinations valid &#x2013; eg. CD19 and CD3 probably won't be compared
+regardless, exponentially growing upper bound as number of markers increases
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgc6fc8e4">
+<h2 id="orgc6fc8e4">Method</h2>
+<div class="outline-text-2" id="text-orgc6fc8e4">
+</div>
+</section>
+<section id="slide-orgdb22e03">
+<h3 id="orgdb22e03">FlowSOM</h3>
+<p>
+allows both clustering and visualisation
+</p>
+
+<aside class="notes">
+<p>
+Authors argue that clustering using SOM allows for automated gating
+and the visualisation throgh star charts allows for easier interpretation of
+data as opposed to 'death by scatter plot'
+</p>
+
+</aside>
+</section>
+<section id="slide-orgb141255">
+<h3 id="orgb141255"></h3>
+
+<div class="figure">
+<p><img src="./img/fig1.png" alt="fig1.png" height="75%" width="75%" />
+</p>
+</div>
+
+</section>
+<section id="slide-orga66fbff">
+<h3 id="orga66fbff">Building the self-organising map</h3>
+<div>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="ltximg/jclub_24acd77adad2afc80cc010db2ea0caea920c8b90.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object></p>
+</div>
+</div>
+<aside class="notes">
+<p>
+Begin to be a bit disillusioned with the paper
+Only explanations offered are very hand-wavey  ("grid is trained in such a way
+that nodes closely connected to each other resemble each other") or too
+exclusionary (like this algorithm)
+</p>
+
+</aside>
+</section>
+<section id="slide-orgfae9c7d" data-transition="fade">
+<h4 id="orgfae9c7d"></h4>
+<div>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="ltximg/jclub_375dc878c26d7b04d08d5c57d585ff1094ee9263.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object></p>
+</div>
+</div>
+
+</section>
+<section id="slide-org10db9e0" data-transition="fade">
+<h4 id="org10db9e0"></h4>
+<div>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="ltximg/jclub_50388d2eac6ebbc111f1266f48fcf004e8f3d26c.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object></p>
+</div>
+</div>
+
+</section>
+<section id="slide-org3c49c0d" data-transition="fade">
+<h4 id="org3c49c0d"></h4>
+<div>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="ltximg/jclub_b51456ef60aadd122a3d17afc1425478c00fcb82.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object></p>
+</div>
+</div>
+
+<aside class="notes">
+<p>
+Repeat this process many many times, gradually reducing the neighbourhood size
+and decreasing the neighbor learning factor.
+</p>
+
+</aside>
+</section>
+<section id="slide-org8b9dadb">
+<h3 id="org8b9dadb">Visualisation</h3>
+
+<div class="figure">
+<p><img src="./img/fig2.jpg" alt="fig2.jpg" width="50%" height="50%" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+This represents the self-organised map grid, with each node representing a
+cluster. 
+The weight vector of the cluster is represented as a star chart within
+the node. 
+Authors give an example at the top. Other example = CD19+ clusters on the right,
+representing B cells.
+</p>
+
+<p>
+Idea is that you are given a high level overview of the data,
+ and can see if there are any interesting scatter plots for manual examination.
+</p>
+
+<p>
+The authors say that this was designed to help with high-dimensionality
+analysis, but the star chart will not be particularly helpful when there are
+many dimensions.
+</p>
+
+</aside>
+
+
+</section>
+<section id="slide-org4ac89f2">
+<h3 id="org4ac89f2">Self organising maps are emergent</h3>
+<p>
+A tunable parameter is the number of clusters; these clusters can then be clustered.
+</p>
+<aside class="notes">
+<p>
+Emergent property: the whole is greater than the sum of its parts.
+Sort of a game - aim is to minimise the variance within clusters.
+With many many clusters, the variance will be very low (but this is not
+analytically helpful).
+By reducing # of clusters, variance will start increasing - aim is to have a
+number of final clusters where adding additional clusters has minimal effect on
+variance.
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgceb7708">
+<h2 id="orgceb7708">Results</h2>
+<p>
+How does this compare to traditional gating?
+</p>
+
+</section>
+<section id="slide-org2aa6b38">
+<h3 id="org2aa6b38">Testing system</h3>
+<p>
+Cluster with
+</p>
+<ul>
+<li>Eight computing nodes</li>
+<li>each with 256 RAM and 24 cores</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+Not something the average person/lab has!
+</p>
+
+<p>
+Regardless, authors say that it runs Very Fast (compared to SPADE).
+Authors also indicate that they haven't parallelised flowSOM (it probably never
+will be&#x2026;)
+</p>
+
+</aside>
+
+
+</section>
+<section id="slide-org5191d98">
+<h3 id="org5191d98">Benchmarking</h3>
+<p>
+Used the FlowCAP I dataset, comprising:
+</p>
+<ul>
+<li>diffuse large B-cell lymphoma</li>
+<li>graft versus host disease</li>
+<li>hematopoietic stem cell ransplant</li>
+<li>normal donor</li>
+<li>symptomatic West Nile virus</li>
+
+</ul>
+
+<p>
+Also one in-house dataset, and another mass cytometry dataset.
+</p>
+<aside class="notes">
+<p>
+FlowCAP:
+A 'competition' where datasets are provided and participants attempt to sort the
+data computationally.
+</p>
+
+<p>
+Authors omit F-value for mass cytometry dataset.
+Authors omit F-value for SPADE.
+mass cytometry is bone marrow
+</p>
+
+<p>
+Measure F-value (precision: fraction of relevant items amongst all retrieved
+items, and recall: fraction of relevant items over all relevant items)
+Also qualitatively show that clusters generally represent single cell types, as
+identified manually
+very high precision = mostly true positives (no false positives)
+very low precision = lots of false positives
+very high recall = low number of false negatives
+very low recall = high number of false negativesRR
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org0dcd97c">
+<h3 id="org0dcd97c"><code>FlowSOM</code> is slightly better than <code>SPADE</code></h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" style="font-size:65%">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Dataset</th>
+<th scope="col" class="org-right"><code>SPADE</code> purity</th>
+<th scope="col" class="org-right"><code>FlowSOM</code> purity</th>
+<th scope="col" class="org-right"><code>FlowSOM</code> F-measure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Diffuse large B-cell lymphoma</td>
+<td class="org-right">0.9367</td>
+<td class="org-right">0.9494</td>
+<td class="org-right">0.8370</td>
+</tr>
+
+<tr>
+<td class="org-left">Graft versus host disease</td>
+<td class="org-right">0.9335</td>
+<td class="org-right">0.9439</td>
+<td class="org-right">0.8546</td>
+</tr>
+
+<tr>
+<td class="org-left">Hematopoietic stem cell transplant</td>
+<td class="org-right">0.9787</td>
+<td class="org-right">0.9759</td>
+<td class="org-right">0.7449</td>
+</tr>
+
+<tr>
+<td class="org-left">Normal donor</td>
+<td class="org-right">0.8173</td>
+<td class="org-right">0.8228</td>
+<td class="org-right">0.6775</td>
+</tr>
+
+<tr>
+<td class="org-left">Symptomatic west nile virus</td>
+<td class="org-right">0.9102</td>
+<td class="org-right">0.9234</td>
+<td class="org-right">0.8292</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes">
+<p>
+Purity essentially defined as 'true positive' rate; defines the proportion of
+cells within a cluster that is actually of a particular cell type.
+</p>
+
+<p>
+FlowSOM slightly better than SPADE &#x2013; but is this clinically relevant? No
+F-value given for SPADE &#x2013; why not? F-value adds proportion of 'false
+negatives'; cells that were not (but should have) been added to a cluster.
+</p>
+
+</aside>
+
+</section>
+<section id="slide-orge993ed7">
+<h3 id="orge993ed7"><code>FlowSOM</code> is faster to run than <code>SPADE</code></h3>
+
+<div class="figure">
+<p><img src="./img/fig6.jpg" alt="fig6.jpg" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org2bafaa4">
+<h2 id="org2bafaa4">Conclusions</h2>
+<p>
+<code>FlowSOM</code> allows for fast automated gating with low memory usage and permits
+visualisation of these clusters.
+</p>
+
+<p>
+It is (apparently) superior to <code>SPADE</code>.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgaf376fb">
+<h2 id="orgaf376fb">Caveats</h2>
+<ul>
+<li><code>FlowSOM</code> was optimised for a particular dataset (FlowCAP I).</li>
+<li>Only tested against one mass cytometry dataset.</li>
+
+</ul>
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+Optimisations: distance measures, run length, metaclustering
+</p>
+
+</aside>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-org4a80132">
+<h2 id="org4a80132">Comparison to other clustering packages</h2>
+<p>
+Weber et al. 2016 examined multiple packages with several mass cytometry
+datasets, reporting F<sub>1</sub> scores and runtimes.
+</p>
+
+<p>
+<code>FlowSOM</code> fairly fast &#x2013; 2 minutes on dataset with 8.4e5 cells.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
