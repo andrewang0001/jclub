@@ -29,8 +29,8 @@
 <div class="slides">
 
 <section>
-<section id="slide-orga1bc001" data-background="#ffffff">
-<h2 id="orga1bc001"></h2>
+<section id="slide-org8b3cad1" data-background="#ffffff">
+<h2 id="org8b3cad1"></h2>
 
 <div class="figure">
 <p><object type="image/svg+xml" data="./img/flowsomtitle2.svg" class="org-svg" width="100%" text-align="center">
@@ -41,13 +41,13 @@ Sorry, your browser does not support SVG.</object>
 </section>
 </section>
 <section>
-<section id="slide-orgc04a5e5">
-<h2 id="orgc04a5e5">Background</h2>
-<div class="outline-text-2" id="text-orgc04a5e5">
+<section id="slide-orgd7c667b">
+<h2 id="orgd7c667b">Background</h2>
+<div class="outline-text-2" id="text-orgd7c667b">
 </div>
 </section>
-<section id="slide-org43ecaab">
-<h3 id="org43ecaab">Mass Cytometry</h3>
+<section id="slide-orge9be781">
+<h3 id="orge9be781">Mass Cytometry</h3>
 <p>
 A high-throughput form of flow cytometry.
 </p>
@@ -72,8 +72,8 @@ quadrupole: separates ions by mass/charge ratio
 
 </aside>
 </section>
-<section id="slide-orgb496a15">
-<h4 id="orgb496a15">Manual gating is less feasible</h4>
+<section id="slide-orga99f6f2">
+<h4 id="orga99f6f2">Manual gating is less feasible</h4>
 
 <div class="figure">
 <p><img src="./img/masscyt_fig3.jpg" alt="masscyt_fig3.jpg" />
@@ -93,13 +93,13 @@ regardless, exponentially growing upper bound as number of markers increases
 </section>
 </section>
 <section>
-<section id="slide-orgbbdb3a4">
-<h2 id="orgbbdb3a4">Method</h2>
-<div class="outline-text-2" id="text-orgbbdb3a4">
+<section id="slide-org704e77b">
+<h2 id="org704e77b">Method</h2>
+<div class="outline-text-2" id="text-org704e77b">
 </div>
 </section>
-<section id="slide-org738a3b7">
-<h3 id="org738a3b7">FlowSOM</h3>
+<section id="slide-org7b2237b">
+<h3 id="org7b2237b">FlowSOM</h3>
 <p>
 allows both clustering and visualisation
 </p>
@@ -113,8 +113,8 @@ data as opposed to 'death by scatter plot'
 
 </aside>
 </section>
-<section id="slide-org4066cc4">
-<h3 id="org4066cc4"></h3>
+<section id="slide-org902469a">
+<h3 id="org902469a"></h3>
 
 <div class="figure">
 <p><img src="./img/fig1.png" alt="fig1.png" height="75%" width="75%" />
@@ -122,8 +122,8 @@ data as opposed to 'death by scatter plot'
 </div>
 
 </section>
-<section id="slide-orge0db9a3">
-<h3 id="orge0db9a3">Building the self-organising map</h3>
+<section id="slide-orge50b8dd">
+<h3 id="orge50b8dd">Building the self-organising map</h3>
 <div>
 
 <div class="figure">
@@ -141,8 +141,8 @@ exclusionary (like this algorithm)
 
 </aside>
 </section>
-<section id="slide-org504e277" data-transition="fade">
-<h4 id="org504e277"></h4>
+<section id="slide-org3c1d5c1" data-transition="fade">
+<h4 id="org3c1d5c1"></h4>
 <div>
 
 <div class="figure">
@@ -152,8 +152,8 @@ Sorry, your browser does not support SVG.</object></p>
 </div>
 
 </section>
-<section id="slide-org93d0c9e" data-transition="fade">
-<h4 id="org93d0c9e"></h4>
+<section id="slide-orgd1221ec" data-transition="fade">
+<h4 id="orgd1221ec"></h4>
 <div>
 
 <div class="figure">
@@ -163,8 +163,8 @@ Sorry, your browser does not support SVG.</object></p>
 </div>
 
 </section>
-<section id="slide-org3654db1" data-transition="fade">
-<h4 id="org3654db1"></h4>
+<section id="slide-org01ebc2c" data-transition="fade">
+<h4 id="org01ebc2c"></h4>
 <div>
 
 <div class="figure">
@@ -181,8 +181,8 @@ and decreasing the neighbor learning factor.
 
 </aside>
 </section>
-<section id="slide-org77e3210">
-<h3 id="org77e3210">Visualisation</h3>
+<section id="slide-org119a9b5">
+<h3 id="org119a9b5">Visualisation</h3>
 
 <div class="figure">
 <p><img src="./img/fig2.jpg" alt="fig2.jpg" width="50%" height="50%" />
@@ -213,8 +213,27 @@ many dimensions.
 </aside>
 
 </section>
-<section id="slide-org2f56fcb">
-<h4 id="org2f56fcb"></h4>
+<section id="slide-org958deec">
+<h3 id="org958deec">Self organising maps are emergent</h3>
+<p>
+A tunable parameter is the number of clusters; these clusters can then be clustered.
+</p>
+<aside class="notes">
+<p>
+Emergent property: the whole is greater than the sum of its parts.
+Sort of a game - aim is to minimise the variance within clusters.
+With many many clusters, the variance will be very low (but this is not
+analytically helpful).
+By reducing # of clusters, variance will start increasing - aim is to have a
+number of final clusters where adding additional clusters has minimal effect on
+variance.
+</p>
+
+</aside>
+
+</section>
+<section id="slide-orgf70f943">
+<h4 id="orgf70f943"></h4>
 
 <div class="figure">
 <p><img src="./img/fig3-mst.png" alt="fig3-mst.png" />
@@ -234,35 +253,17 @@ MST: a set of edges that connect all nodes while minimising the sum of edge weig
 </aside>
 
 </section>
-<section id="slide-orgce366d8">
-<h3 id="orgce366d8">Self organising maps are emergent</h3>
-<p>
-A tunable parameter is the number of clusters; these clusters can then be clustered.
-</p>
-<aside class="notes">
-<p>
-Emergent property: the whole is greater than the sum of its parts.
-Sort of a game - aim is to minimise the variance within clusters.
-With many many clusters, the variance will be very low (but this is not
-analytically helpful).
-By reducing # of clusters, variance will start increasing - aim is to have a
-number of final clusters where adding additional clusters has minimal effect on
-variance.
-</p>
-
-</aside>
-</section>
 </section>
 <section>
-<section id="slide-org4a939e7">
-<h2 id="org4a939e7">Results</h2>
+<section id="slide-org88532d6">
+<h2 id="org88532d6">Results</h2>
 <p>
 How does this compare to traditional gating?
 </p>
 
 </section>
-<section id="slide-org1dece0f">
-<h3 id="org1dece0f">Testing system</h3>
+<section id="slide-org5b2913e">
+<h3 id="org5b2913e">Testing system</h3>
 <p>
 Cluster with
 </p>
@@ -287,8 +288,8 @@ will be&#x2026;)
 
 
 </section>
-<section id="slide-org2d7ec0a">
-<h3 id="org2d7ec0a">Benchmarking</h3>
+<section id="slide-orgf8d7e72">
+<h3 id="orgf8d7e72">Benchmarking</h3>
 <p>
 Used the FlowCAP I dataset, comprising:
 </p>
@@ -331,12 +332,13 @@ very low recall = high number of false negativesRR
 </aside>
 
 </section>
-<section id="slide-org988279b">
-<h3 id="org988279b">Qualitative evidence suggests <code>FlowSOM</code> works almost as well as manual annotation</h3>
+<section id="slide-orgd32ddaa">
+<h3 id="orgd32ddaa">Qualitative evidence suggests <code>FlowSOM</code> works almost as well as manual annotation</h3>
+<img src="./img/fig3-manualcomp.jpg" width="45%"> <img src="./img/fig5-manualcomp.jpg" width="45%">
 
 </section>
-<section id="slide-org9ab605c">
-<h3 id="org9ab605c"><code>FlowSOM</code> is slightly better than <code>SPADE</code></h3>
+<section id="slide-org1ef41f3">
+<h3 id="org1ef41f3"><code>FlowSOM</code> is slightly better than <code>SPADE</code></h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" style="font-size:65%">
 
 
@@ -410,8 +412,8 @@ negatives'; cells that were not (but should have) been added to a cluster.
 </aside>
 
 </section>
-<section id="slide-orgb4c0553">
-<h3 id="orgb4c0553"><code>FlowSOM</code> is faster to run than <code>SPADE</code></h3>
+<section id="slide-orgf3564f1">
+<h3 id="orgf3564f1"><code>FlowSOM</code> is faster to run than <code>SPADE</code></h3>
 
 <div class="figure">
 <p><img src="./img/fig6.jpg" alt="fig6.jpg" />
@@ -420,8 +422,8 @@ negatives'; cells that were not (but should have) been added to a cluster.
 </section>
 </section>
 <section>
-<section id="slide-org71a2056">
-<h2 id="org71a2056">Conclusions</h2>
+<section id="slide-orgf93608b">
+<h2 id="orgf93608b">Conclusions</h2>
 <p>
 <code>FlowSOM</code> allows for fast automated gating with low memory usage and permits
 visualisation of these clusters.
@@ -433,8 +435,8 @@ It is (apparently) superior to <code>SPADE</code>.
 </section>
 </section>
 <section>
-<section id="slide-org553d245">
-<h2 id="org553d245">Caveats</h2>
+<section id="slide-org606d125">
+<h2 id="org606d125">Caveats</h2>
 <ul>
 <li><code>FlowSOM</code> was optimised for a particular dataset (FlowCAP I).</li>
 <li>Only tested against one mass cytometry dataset.</li>
@@ -456,8 +458,8 @@ Optimisations: distance measures, run length, metaclustering
 </section>
 </section>
 <section>
-<section id="slide-orgfe54035">
-<h2 id="orgfe54035">Comparison to other clustering packages</h2>
+<section id="slide-orgd3506bc">
+<h2 id="orgd3506bc">Comparison to other clustering packages</h2>
 <p>
 Weber et al. 2016 examined multiple packages with several mass cytometry
 datasets, reporting F<sub>1</sub> scores and runtimes.
